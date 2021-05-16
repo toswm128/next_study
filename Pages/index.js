@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Layout from "../components/layout";
+import fetch from "isomorphic-unfetch";
 
 const ProfileLink = props => (
   <div>
@@ -9,13 +10,22 @@ const ProfileLink = props => (
   </div>
 );
 
-const Index = () => (
+const Index = props => (
   <Layout>
-    <h1>Friends List</h1>
-    <ProfileLink profile="jake" />
-    <ProfileLink profile="peter" />
-    <ProfileLink profile="yumi" />
+    <h1>Friends List {props.profiles[0]}</h1>
+    {props.profiles.map((profile, index) => (
+      <ProfileLink key={index} profile={profile} />
+    ))}
   </Layout>
 );
+
+Index.getInitialProps = async function () {
+  const res = [{ name: "minsu" }, { name: "pepsi" }, { name: "haha" }];
+  // const data = await res.json();
+
+  return {
+    profiles: res.map(profile => profile.name),
+  };
+};
 
 export default Index;
