@@ -1,10 +1,9 @@
-import Header from "../components/header";
+import Layout from "../components/layout";
 
 export default function Profile() {
   return (
-    <div>
-      <Header />
+    <Layout>
       <p>Hello, my name is jake seo. I use next.js</p>
-    </div>
+    </Layout>
   );
 }
