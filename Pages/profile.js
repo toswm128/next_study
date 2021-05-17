@@ -1,12 +1,12 @@
-import Layout from "../../components/Layout";
-import { useRouter } from "next/router";
+import Layout from "../components/layout";
+// import { useRouter } from "next/router";
 
 export default function Profile() {
-  const router = useRouter();
+  // const router = useRouter();
 
   return (
     <Layout>
-      <p>Hello, my name is {router.query.profile}. I use Next.js</p>
+      <p>Hello, my name is null. I use Next.js</p>
     </Layout>
   );
 }

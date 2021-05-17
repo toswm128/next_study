@@ -5,7 +5,7 @@ const Header = () => (
     <Link href="/">
       <a>main</a>
     </Link>
-    <Link href="/profile">
+    <Link href="p/profile">
       <a>profile</a>
     </Link>
   </div>
