@@ -24,7 +24,9 @@ const Index = props => {
       <input type="text" {...text} />
       <button
         onClick={() => {
-          props.set.push({ name: text.value }), console.log(props.set);
+          props.set.push({ name: text.value });
+          console.log(props.set);
+          text.setValue("");
         }}
       >
         제출
