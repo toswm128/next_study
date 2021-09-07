@@ -6,6 +6,7 @@ import { observer, inject } from "mobx-react";
 const Home = inject("store")(props => {
   const [value, setValue] = useState("");
   const { li } = props.store;
+  const { handleList } = props.store;
   const [list, setList] = useState([...li]);
   console.log(props, li, list);
   return (
@@ -19,6 +20,7 @@ const Home = inject("store")(props => {
       <button
         onClick={() => {
           setList([...list, value]);
+          handleList([...list, value]);
         }}
       >
         제출

@@ -1,4 +1,4 @@
-import { makeObservable, observable, makeAutoObservable } from "mobx";
+import { makeObservable, observable, makeAutoObservable, action } from "mobx";
 
 class Store {
   li = ["안녕", "하세요"];
@@ -6,6 +6,7 @@ class Store {
   constructor() {
     makeObservable(this, {
       li: observable,
+      handleList: action,
     });
   }
 
