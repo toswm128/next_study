@@ -1,10 +1,12 @@
 import { useRouter } from "next/router";
 
-export default () => {
+function AboutName() {
   const router = useRouter();
   return (
     <div>
       <p>{router.query.name}</p>
     </div>
   );
-};
+}
+
+export default AboutName;

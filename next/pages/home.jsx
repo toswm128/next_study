@@ -1,10 +1,13 @@
 import Link from "next/link";
 import { useState } from "react";
+import useStores from "../Hooks/useStore";
+import { observer, inject } from "mobx-react";
 
-const Home = ({ res }) => {
+const Home = inject("store")(props => {
   const [value, setValue] = useState("");
-  const [list, setList] = useState(res);
-
+  const { li } = props.store;
+  const [list, setList] = useState([...li]);
+  console.log(props, li, list);
   return (
     <div>
       <h1>hello</h1>
@@ -20,16 +23,16 @@ const Home = ({ res }) => {
       >
         제출
       </button>
-      {list.map(current => {
+      {list.map((current, index) => {
         return (
-          <div>
+          <div key={index}>
             <Link href={"/about/" + current}>{current}</Link>
           </div>
         );
       })}
     </div>
   );
-};
+});
 
 Home.getInitialProps = () => {
   // context.query.id = 'test'
@@ -37,4 +40,4 @@ Home.getInitialProps = () => {
   return { res };
 };
 
-export default Home;
+export default observer(Home);
